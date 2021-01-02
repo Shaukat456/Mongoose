@@ -12,6 +12,7 @@ const PlaylistSce = new mongoose.Schema({
         type: Number,
         required: true
     },
+    
     date: {
         type: Date,
         default: Date.now
@@ -50,17 +51,14 @@ console.log(result)
     }
 }
 
-// CreateDoc()
-
+// Creating Document()
 const getDoc= async ()=>{
     try{
-        const result1=await DefiningModel.find()
-        .select({name:1})
-        // .sort('name:1')
-        // .countDocuments()
-        // .limit(2)
-        console.log(result1)}catch(error){
-                console.log(error)
+        const result=await DefiningModel.find({name:'shoukat'})
+        console.log(result)
+    }    
+        catch(err){
+                console.log('error'  + err)
         }
 }
 
