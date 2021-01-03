@@ -54,7 +54,9 @@ console.log(result)
 // Creating Document()
 const getDoc= async ()=>{
     try{
-        const result=await DefiningModel.find({name:'shoukat'})
+        const result=await DefiningModel.find()
+        .select()
+        .limit(2)
         console.log(result)
     }    
         catch(err){
@@ -62,4 +64,5 @@ const getDoc= async ()=>{
         }
 }
 
+CreateDoc()
 getDoc()
