@@ -10,7 +10,11 @@ const PlaylistSce = new mongoose.Schema({
         unique:true,
         trim:true,
         minlength:[2,'Minimum 2 letters'],
-        maxlength:30
+        maxlength:30,
+        validate(value){
+            if(value<0){
+                throw new Error('This field should be filled')
+            }
     },
     email: {
         type:String,
@@ -21,7 +25,9 @@ const PlaylistSce = new mongoose.Schema({
         required:true
     },
     Discuss: {
-        type:String,
+        type:String
+       
+        }
         // required: true,
         // unique:false
         // maxlength:20,
@@ -43,7 +49,7 @@ const CreateDoc = async () => {
         const PracticeOfMongoose = new DefiningModel({
             name: 'Crr',
             email:'s@gmail.com',
-        Discuss:'sign'
+        Discuss:''
 
         })
 
@@ -120,10 +126,10 @@ const DeleteDoc= async(_id)=>{
 
 //Dont give GAP BEFORE  ID 
 
-// CreateDoc()
+CreateDoc()
 // UpdateDoc(' 5ff9463c97499422aceca439');
 // DeleteDoc('5ff9350389978019643ad707')
-getDoc(' 5ff9463c97499422aceca439')
+// getDoc(' 5ff9463c97499422aceca439')
 
 
 
