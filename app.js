@@ -7,12 +7,12 @@ const PlaylistSce = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        unique:true
+        // unique:true
     },
     age: {
         type: Number,
         required: true,
-        unique:false
+        // unique:false
     },
     
     date: {
@@ -101,9 +101,15 @@ const DeleteDoc= async(_id)=>{
 }
 
 
+
+
+//Dont give GAP BEFORE  ID 
+
 // CreateDoc()
 // UpdateDoc('5ff9350389978019643ad707');
-// getDoc('5ff1a557e68faa2c90ad02a4')
+// DeleteDoc('5ff9350389978019643ad707')
+// getDoc('5ff9350389978019643ad707')
 
-//Dont give GAP
-DeleteDoc('5ff93559d193bc14080b9dcc')
+
+
+
