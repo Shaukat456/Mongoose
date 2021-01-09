@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 //Connection Creating And New DB
-mongoose.connect('mongodb://localhost:27017/datebase1', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('connected')).catch((error) => console.log(error))
+mongoose.connect('mongodb://localhost:27017/datebase1', { useNewUrlParser: true, useUnifiedTopology: true , useCreateIndex:true }).then(() => console.log('connected')).catch((error) => console.log(error))
 
 const PlaylistSce = new mongoose.Schema({
     name: {
