@@ -1,16 +1,18 @@
 const mongoose = require('mongoose')
 
 //Connection Creating And New DB
-mongoose.connect('mongodb://localhost:27017/shouka', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('connected')).catch((error) => console.log(error))
+mongoose.connect('mongodb://localhost:27017/datebase1', { useNewUrlParser: true, useUnifiedTopology: true }).then(() => console.log('connected')).catch((error) => console.log(error))
 
 const PlaylistSce = new mongoose.Schema({
     name: {
         type: String,
-        required: true
+        required: true,
+        unique:true
     },
     age: {
         type: Number,
-        required: true
+        required: true,
+        unique:false
     },
     
     date: {
@@ -54,15 +56,37 @@ console.log(result)
 // Creating Document()
 const getDoc= async ()=>{
     try{
-        const result=await DefiningModel.find()
-        .select()
-        .limit(2)
+        const result=await DefiningModel.find({name:'SHOUKAT2'})
+        // .limit(2)
+        .select({name:4})
         console.log(result)
     }    
         catch(err){
-                console.log('error'  + err)
+                console.log('error')
         }
 }
 
-CreateDoc()
-getDoc()
+const UpdateDoc= async (_id)=>{
+      
+    try{
+     const result=  await DefiningModel.findByIdAndUpdate({_id},{
+          $set :{ name:'HELOSS'}
+      },
+      {
+          new:true,
+        useFindAndModify:false
+      }
+      );
+      console.log(result)
+     
+    }
+    catch(err){
+        console.log(err)
+    }    
+
+}
+
+
+// CreateDoc()
+// UpdateDoc('5ff9350389978019643ad707');
+getDoc('5ff9350389978019643ad707')
