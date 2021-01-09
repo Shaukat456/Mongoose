@@ -7,12 +7,25 @@ const PlaylistSce = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        // unique:true
+        unique:true,
+        trim:true,
+        minlength:[2,'Minimum 2 letters'],
+        maxlength:30
     },
-    age: {
-        type: Number,
+    email: {
+        type:String,
         required: true,
         // unique:false
+        maxlength:20,
+        minlength:1,
+        required:true
+    },
+    Discuss: {
+        type:String,
+        // required: true,
+        // unique:false
+        // maxlength:20,
+        // minlength:1
     },
     
     date: {
@@ -28,20 +41,22 @@ const CreateDoc = async () => {
     try {
 
         const PracticeOfMongoose = new DefiningModel({
-            name: 'SHOUKAT1',
-            age: 53,
+            name: 'Crr',
+            email:'s@gmail.com',
+        Discuss:'sign'
 
         })
 
         const PracticeOfMongoose2 = new DefiningModel({
-            name: 'SHOUKAT2',
-            age: 52,
+            name: 'Rrr',
+            email:'s@gmail.com',
+        Discuss:'bye.'
 
         })
         const PracticeOfMongoose3 = new DefiningModel({
-            name: 'SHOUKAT3',
-            age: 51,
-
+            name: 'Urr',
+            email:'s@gmail.com',
+            Discuss:'hey '
         })
 
 
@@ -49,16 +64,16 @@ const CreateDoc = async () => {
 const result = await DefiningModel.insertMany([PracticeOfMongoose,PracticeOfMongoose2,PracticeOfMongoose3])
 console.log(result)
  } catch (err) {
-        console.log('Error ')
+        console.log(err)
     }
 }
 
 // Creating Document()
 const getDoc= async ()=>{
     try{
-        const result=await DefiningModel.find({name:'SHOUKAT1'})
-        .limit(2)
-        .select({name:1})
+        const result=await DefiningModel.find({email:'s@gmail.com'})
+        // .limit(2)
+        // .select({name:1})
         console.log(result)
     }    
         catch(err){
@@ -106,9 +121,9 @@ const DeleteDoc= async(_id)=>{
 //Dont give GAP BEFORE  ID 
 
 // CreateDoc()
-// UpdateDoc('5ff9350389978019643ad707');
+// UpdateDoc(' 5ff9463c97499422aceca439');
 // DeleteDoc('5ff9350389978019643ad707')
-// getDoc('5ff9350389978019643ad707')
+getDoc(' 5ff9463c97499422aceca439')
 
 
 
