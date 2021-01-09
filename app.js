@@ -56,9 +56,9 @@ console.log(result)
 // Creating Document()
 const getDoc= async ()=>{
     try{
-        const result=await DefiningModel.find({name:'SHOUKAT2'})
-        // .limit(2)
-        .select({name:4})
+        const result=await DefiningModel.find({name:'SHOUKAT1'})
+        .limit(2)
+        .select({name:1})
         console.log(result)
     }    
         catch(err){
@@ -87,6 +87,23 @@ const UpdateDoc= async (_id)=>{
 }
 
 
+// Delete Doc
+
+const DeleteDoc= async(_id)=>{
+    try {
+        const result=await DefiningModel.findByIdAndDelete({_id})
+        console.log(result)
+        
+    } catch (err) {
+        console.log(err)
+    }
+
+}
+
+
 // CreateDoc()
 // UpdateDoc('5ff9350389978019643ad707');
-getDoc('5ff9350389978019643ad707')
+// getDoc('5ff1a557e68faa2c90ad02a4')
+
+//Dont give GAP
+DeleteDoc('5ff93559d193bc14080b9dcc')
